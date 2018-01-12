@@ -42,6 +42,7 @@
 
 #define TYPE_CRC32		1
 #define TYPE_CRC64		2
+#define TYPE_CRC32_MPEG2        3
 
 /*
  * Functions in this source file with local scope
@@ -109,6 +110,7 @@ static int generate_table( const char *typename, const char *filename ) {
 
 	if      ( ! strcmp( typename, "--crc64" ) ) type = TYPE_CRC64;
 	else if ( ! strcmp( typename, "--crc32" ) ) type = TYPE_CRC32;
+	else if ( ! strcmp( typename, "--crc32-mpeg2" ) ) type = TYPE_CRC32_MPEG2;
 	else {
 
 		fprintf( stderr, "\nprecalc: Unknown table type \"%s\" passed\n\n", typename );
@@ -122,6 +124,7 @@ static int generate_table( const char *typename, const char *filename ) {
 
 		case TYPE_CRC32 : init_crc32_tab(); tabname = "crc_tab32"; bits = 32; break;
 		case TYPE_CRC64 : init_crc64_tab(); tabname = "crc_tab64"; bits = 64; break;
+		case TYPE_CRC32_MPEG2 : init_crc32_mpeg2_tab(); tabname = "crc_tab32_mpeg2"; bits = 32; break;
 	}
 
 #if defined(_MSC_VER)

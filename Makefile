@@ -239,6 +239,7 @@ ${LIBDIR}libcrc${LIBEXT} :			\
 
 ${TABDIR}gentab32.inc			: ${BINDIR}prc${EXEEXT}
 	${BINDIR}prc --crc32 ${TABDIR}gentab32.inc
+	${BINDIR}prc --crc32-mpeg2 ${TABDIR}gentab32_mpeg2.inc
 
 ${TABDIR}gentab64.inc			: ${BINDIR}prc${EXEEXT}
 	${BINDIR}prc --crc64 ${TABDIR}gentab64.inc
@@ -251,7 +252,7 @@ ${OBJDIR}crc8${OBJEXT}			: ${SRCDIR}crc8.c ${INCDIR}checksum.h
 
 ${OBJDIR}crc16${OBJEXT}			: ${SRCDIR}crc16.c ${INCDIR}checksum.h
 
-${OBJDIR}crc32${OBJEXT}			: ${SRCDIR}crc32.c ${INCDIR}checksum.h ${TABDIR}gentab32.inc
+${OBJDIR}crc32${OBJEXT}			: ${SRCDIR}crc32.c ${INCDIR}checksum.h ${TABDIR}gentab32.inc ${TABDIR}gentab32_mpeg2.inc
 
 ${OBJDIR}crc64${OBJEXT}			: ${SRCDIR}crc64.c ${INCDIR}checksum.h ${TABDIR}gentab64.inc
 

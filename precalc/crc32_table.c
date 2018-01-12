@@ -63,3 +63,24 @@ void init_crc32_tab( void ) {
 	}
 
 }  /* init_crc32_tab */
+
+void init_crc32_mpeg2_tab( void ) {
+
+	uint32_t i;
+	uint32_t j;
+	uint32_t crc;
+
+	for (i=0; i<256; i++) {
+
+		crc = i<<24;
+
+		for (j=0; j<8; j++) {
+
+			if ( crc & (0x1L << 31) ) crc = ( crc << 1 ) ^ CRC_POLY_32_MPEG2;
+			else                     crc =   crc << 1;
+		}
+
+		crc_tab_precalc[i] = crc;
+	}
+
+}  /* init_crc32_tab */

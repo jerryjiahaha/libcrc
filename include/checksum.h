@@ -45,6 +45,7 @@
 
 #define		CRC_POLY_16		0xA001
 #define		CRC_POLY_32		0xEDB88320ul
+#define		CRC_POLY_32_MPEG2	0x04C11DB7ul
 #define		CRC_POLY_64		0x42F0E1EBA9EA3693ull
 #define		CRC_POLY_CCITT		0x1021
 #define		CRC_POLY_DNP		0xA6BC
@@ -79,6 +80,7 @@ unsigned char *		checksum_NMEA(      const unsigned char *input_str, unsigned ch
 uint8_t			crc_8(              const unsigned char *input_str, size_t num_bytes       );
 uint16_t		crc_16(             const unsigned char *input_str, size_t num_bytes       );
 uint32_t		crc_32(             const unsigned char *input_str, size_t num_bytes       );
+uint32_t		crc_32_mpeg2(       const unsigned char *input_str, size_t num_bytes       );
 uint64_t		crc_64_ecma(        const unsigned char *input_str, size_t num_bytes       );
 uint64_t		crc_64_we(          const unsigned char *input_str, size_t num_bytes       );
 uint16_t		crc_ccitt_1d0f(     const unsigned char *input_str, size_t num_bytes       );
@@ -102,6 +104,7 @@ uint16_t		update_crc_sick(    uint16_t crc, unsigned char c, unsigned char prev_
  */
 
 extern const uint32_t	crc_tab32[];
+extern const uint32_t	crc_tab32_mpeg2[];
 extern const uint64_t	crc_tab64[];
 
 #endif  // DEF_LIBCRC_CHECKSUM_H

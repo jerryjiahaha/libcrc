@@ -40,6 +40,7 @@
  */
 
 void			init_crc32_tab( void );
+void			init_crc32_mpeg2_tab( void );
 void			init_crc64_tab( void );
 int			main( int argc, char *argv[] );
 
