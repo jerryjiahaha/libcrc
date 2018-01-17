@@ -10,9 +10,7 @@
 #include <arpa/inet.h>
 #endif
 
-#define CRC_POLY_32_MPEG2	0x04C11DB7ul
-#define CRC_START_32		0xFFFFFFFFul
-#define BYTE_FIRST_ONE (0x01 << 7)
+#include "jcrc.h"
 
 void reverse(uint32_t input) {
 	uint32_t init = 0;
