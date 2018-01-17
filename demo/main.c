@@ -13,20 +13,20 @@ void testcrc32() {
 //	uint8_t input[] = {0x08, 0x07, 0x06, 0x05, 0x04, 0x03, 0x02, 0x01};
 	size_t len = 8;
 	uint32_t crc32 = crc_32_mpeg2(input, len);
-	printf("%#x\n", crc32);
+	printf("crc32-mpeg2: %#x\n", crc32);
 	for (int i = 0;i<len;i++) {
 		printf("%#x ", ((uint8_t*)&crc32)[i]);
 	}
 	printf("\n====\n");
 
+	printf("crc32:  %#x\n", crc_32(input, len));
 	uint32_t init = 0xFFFFFFFF;
 	uint32_t crc = init;
-	for (int j = 0; j < 4; j++) {
+	for (int j = 0; j < len; j++) {
 		crc = update_crc_32(crc, input[j]);
 	}
 	printf("%#x\n", crc);
 	printf("~%#x\n", ~crc);
-	printf("^%#x\n", crc ^ 0xFFFFFFFFuL);
 }
 
 int main(int argc, char *argv[]) {
